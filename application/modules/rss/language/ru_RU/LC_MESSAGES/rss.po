@@ -1,0 +1,87 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-19 10:52+0200\n"
+"PO-Revision-Date: 2015-02-19 10:52+0200\n"
+"Last-Translator:  <>\n"
+"Language-Team:  <>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;lang\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: ./application/modules/rss/admin.php:60
+msgid "RSS was edited"
+msgstr "RSS отредактирован"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:5
+msgid "RSS channel options or specifications"
+msgstr "Параметры RSS-канала"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:57
+msgid "Specify caсhe lifetime in minutes"
+msgstr "Укажите период обновления кеша в минутах"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:9
+msgid "Go back"
+msgstr "Назад"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:10
+msgid "Save"
+msgstr "Сохранить"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:17
+msgid "Settings"
+msgstr "Настройки"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:24
+msgid "Name"
+msgstr "Название"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:30
+msgid "Description"
+msgstr "Описание"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:36
+msgid "Categories"
+msgstr "Категории"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:39
+msgid "Without a category"
+msgstr "Без категории"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:43
+msgid "Choose transmition categories"
+msgstr "Создать категорию передачи"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:47
+msgid "Number of pages"
+msgstr "Количество страниц"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:50
+msgid "Specify the number of pages for display"
+msgstr "Укажите количество страниц для отображения"
+
+#: ./application/modules/rss/templates/admin/settings.tpl:54
+msgid "Cache"
+msgstr "Кэш"
+
+#: ./application/modules/rss/admin.php:61
+msgid "Changes have been saved"
+msgstr "Изменения сохранены"
+
+#: ./application/modules/rss/module_info.php:4
+msgid "RSS"
+msgstr "RSS"
+
+#: ./application/modules/rss/module_info.php:5
+msgid "RSS-каналы"
+msgstr "RSS-каналы"

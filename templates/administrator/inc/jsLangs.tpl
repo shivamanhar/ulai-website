@@ -1,0 +1,31 @@
+<script>
+langs["numbers only"] = '<?php echo addslashes(lang("numbers only", "admin", FALSE))?>';
+langs["Error"] = '<?php echo addslashes(lang("Error", "admin", FALSE))?>';
+langs["Not supported file format"] = '<?php echo addslashes(lang("Not supported file format", "admin", FALSE))?>';
+langs["Message"] = '<?php echo addslashes(lang("Message", "admin", FALSE))?>';
+langs["Sorting method updated"] = '<?php echo addslashes(lang("Sorting method updated", "admin", FALSE))?>';
+langs["This field is required"] = '<?php echo addslashes(lang("This field is required", "admin", FALSE))?>';
+langs["Please fix this field."] = '<?php echo addslashes(lang("Please fix this field.", "admin", FALSE))?>';
+langs["Enter a valid email address."] = '<?php echo addslashes(lang("Enter a valid email address.", "admin", FALSE))?>';
+langs["Please enter a valid URL."] = '<?php echo addslashes(lang("Please enter a valid URL.", "admin", FALSE))?>';
+langs["Please enter a valid date."] = '<?php echo addslashes(lang("Please enter a valid date.", "admin", FALSE))?>';
+langs["Please enter a valid date (ISO)."] = '<?php echo addslashes(lang("Please enter a valid date (ISO).", "admin", FALSE))?>';
+langs["Please enter a valid number."] = '<?php echo addslashes(lang("Please enter a valid number.", "admin", FALSE))?>';
+langs["Please enter only digits."] = '<?php echo addslashes(lang("Please enter only digits.", "admin", FALSE))?>';
+langs["Please enter a valid credit card number."] = '<?php echo addslashes(lang("Please enter a valid credit card number.", "admin", FALSE))?>';
+langs["Please enter the same value again."] = '<?php echo addslashes(lang("Please enter the same value again.", "admin", FALSE))?>';
+langs["Please enter a value with a valid extension."] = '<?php echo addslashes(lang("Please enter a value with a valid extension.", "admin", FALSE))?>';
+langs["Please enter no more than<?php echo ' {0}'?> characters."] = '<?php echo addslashes(lang("Please enter no more than {0} characters.", "admin", FALSE))?>';
+langs["Please enter at least<?php echo ' {0}'?> characters."] = '<?php echo addslashes(lang("Please enter at least {0} characters.", "admin", FALSE))?>';
+langs["Please enter a value between<?php echo ' {0}'?> and<?php echo ' {1}'?> characters long."] = '<?php echo addslashes(lang("Please enter a value between {0} and {1} characters long.", "admin", FALSE))?>';
+langs["Please enter a value between<?php echo ' {0}'?> and<?php echo ' {1}'?>."] = '<?php echo addslashes(lang("Please enter a value between {0} and {1}.", "admin", FALSE))?>';
+langs["Please enter a value less than or equal to<?php echo ' {0}'?>."] = '<?php echo addslashes(lang("Please enter a value less than or equal to {0}.", "admin", FALSE))?>';
+langs["Please enter a value greater than or equal to<?php echo ' {0}'?>."] = '<?php echo addslashes(lang("Please enter a value greater than or equal to {0}.", "admin", FALSE))?>';
+langs["Select Some Options"] = '<?php echo addslashes(lang("Select Some Options", "admin", FALSE))?>';
+langs["Select an Option"] = '<?php echo addslashes(lang("Select an Option", "admin", FALSE))?>';
+langs["No results match"] = '<?php echo addslashes(lang("No results match", "admin", FALSE))?>';
+langs["Empty list"] = '<?php echo addslashes(lang("Empty list", "admin", FALSE))?>';
+langs["More"] = '<?php echo addslashes(lang("More", "admin", FALSE))?>';
+langs["No results for your query"] = '<?php echo addslashes(lang("No results for your query", "admin", FALSE))?>';
+langs["PHP GD library is not installed"] = '<?php echo addslashes(lang("PHP GD library is not installed", "admin", FALSE))?>';
+</script>

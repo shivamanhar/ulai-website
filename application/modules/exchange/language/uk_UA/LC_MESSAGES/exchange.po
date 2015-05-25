@@ -1,0 +1,249 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-26 05:37+0200\n"
+"PO-Revision-Date: 2014-12-26 05:37+0200\n"
+"Last-Translator:  <>\n"
+"Language-Team:  <>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;lang\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+
+#: ./application/modules/exchange/exchange.php:147
+msgid "Can not create a database snapshot, check the folder |0| on writing possibility"
+msgstr "Не можу створити знімок бази даних, перевірте папку |0| можливість писати"
+
+#: ./application/modules/exchange/admin.php:65
+msgid "1C settings was edited"
+msgstr "1С налаштування було відредаговане"
+
+#: ./application/modules/exchange/admin.php:114
+msgid "1C additional categories was started"
+msgstr "1С додаткові категорії запущені"
+
+#: ./application/modules/exchange/admin.php:169
+msgid "1C log was cleared"
+msgstr "1С журнал був очищений"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:36
+#: ./application/modules/exchange/assets/admin/Log.tpl:26
+#: ./application/modules/exchange/admin.php:166
+msgid "Time log"
+msgstr "Журнал часу"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:33
+#: ./application/modules/exchange/assets/admin/Log.tpl:23
+#: ./application/modules/exchange/admin.php:155
+msgid "Query log"
+msgstr "Журнал запитів"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:30
+#: ./application/modules/exchange/assets/admin/Log.tpl:20
+#: ./application/modules/exchange/admin.php:144
+msgid "Errors log"
+msgstr "Журналу помилок"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:25
+#: ./application/modules/exchange/assets/admin/settings.tpl:25
+#: ./application/modules/exchange/assets/admin/Log.tpl:15
+msgid "Logs"
+msgstr "Журнали"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:18
+msgid "a_save"
+msgstr "a_save"
+
+#: ./application/modules/exchange/admin.php:66
+msgid "Settings saved"
+msgstr "Налаштування зберігаються"
+
+#: ./application/modules/exchange/admin.php:73
+msgid "Images saved"
+msgstr "Зображення збережені"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:22
+#: ./application/modules/exchange/assets/admin/settings.tpl:22
+msgid "Save"
+msgstr "Зберегти"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:16
+#: ./application/modules/exchange/assets/admin/settings.tpl:16
+msgid "Fix"
+msgstr "Виправити категорії товарів"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:182
+#: ./application/modules/exchange/assets/admin/settings.tpl:176
+msgid "Email Administrator for sending important safety mistakes"
+msgstr "E-mail адміністратора для відправки важливих помилок безпеки"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:164
+#: ./application/modules/exchange/assets/admin/settings.tpl:158
+msgid "Debugging mode"
+msgstr "Режим відлагодження"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:125
+#: ./application/modules/exchange/assets/admin/settings.tpl:119
+msgid "Property, which will be mean like brand"
+msgstr "Властивість, яка буде застосована як бренд"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:113
+#: ./application/modules/exchange/assets/admin/settings.tpl:107
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:94
+msgid "Select order status"
+msgstr "Вибір статусу замовлення"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:102
+#: ./application/modules/exchange/assets/admin/settings.tpl:96
+msgid "Database backup"
+msgstr "Резервне копіювання бази даних"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:77
+#: ./application/modules/exchange/assets/admin/settings.tpl:71
+msgid "Use server password"
+msgstr "Використання паролю серверу"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:95
+#: ./application/modules/exchange/assets/admin/settings.tpl:89
+msgid "Server password"
+msgstr "Пароль серверу"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:88
+#: ./application/modules/exchange/assets/admin/settings.tpl:82
+msgid "Set up a login to access the server 1C"
+msgstr "Задати логін для доступу до серверу 1С"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:71
+#: ./application/modules/exchange/assets/admin/settings.tpl:65
+msgid "1C Ip addres "
+msgstr "Адреса в 1С Ip"
+
+#: ./application/modules/exchange/admin.php:44
+msgid "Size of the file being loaded at the same time"
+msgstr "Розмір файлу, що завантажується в той же час"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:65
+#: ./application/modules/exchange/assets/admin/settings.tpl:59
+msgid "Size"
+msgstr "Розмір"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:143
+#: ./application/modules/exchange/assets/admin/settings.tpl:137
+msgid "Run automatically resize images?"
+msgstr "Запустити автоматична зміна розміру зображень?"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:56
+#: ./application/modules/exchange/assets/admin/settings.tpl:50
+msgid "Use commpres"
+msgstr "Використовувати стиснення"
+
+#: ./application/modules/exchange/module_info.php:8
+msgid "Allows you to synchronize online store database with 1C Trade Management database"
+msgstr "Дозволяє синхронізувати базу даних інтернет-магазину з базою даних 1С Управління Торгівлею"
+
+#: ./application/modules/exchange/admin.php:45
+msgid "IP server 1C"
+msgstr "IP сервера 1С"
+
+#: ./application/modules/exchange/exchange.php:258
+msgid "Wrong password"
+msgstr "Неправильний пароль"
+
+#: ./application/modules/exchange/exchange.php:302
+#: ./application/modules/exchange/exchange.php:303
+msgid "Security Error!!!"
+msgstr "Помилка Безпеки!!!"
+
+#: ./application/modules/exchange/exchange.php:451
+msgid "Import error"
+msgstr "Помилка імпорту"
+
+#: ./application/modules/exchange/module_info.php:7
+msgid "Synchronization with 1C"
+msgstr "Синхронізація з 1С"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:12
+msgid "a_back"
+msgstr "a_back"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:37
+msgid "a_ispol"
+msgstr "a_ispol"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:40
+msgid "a_yes"
+msgstr "a_yes"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:41
+msgid "a_no"
+msgstr "a_no"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:46
+msgid "a_razmer"
+msgstr "a_razmer"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:52
+msgid "a_ip_addres_1c"
+msgstr "a_ip_addres_1c"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:58
+msgid "a_ispol_server"
+msgstr "a_ispol_server"
+
+#: ./application/modules/exchange/exchange_4.4 for 4.2/templates/admin/settings.tpl:76
+msgid "a_server_zadat"
+msgstr "a_server_zadat"
+
+#: ./application/modules/exchange/assets/admin/Log.tpl:12
+msgid "Clear log"
+msgstr "Очистити журнал"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:12
+#: ./application/modules/exchange/assets/admin/settings.tpl:12
+#: ./application/modules/exchange/assets/admin/Log.tpl:36
+msgid "Back"
+msgstr "Тому"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:5
+#: ./application/modules/exchange/templates/admin/settings.tpl:47
+#: ./application/modules/exchange/assets/admin/settings.tpl:5
+#: ./application/modules/exchange/assets/admin/settings.tpl:41
+msgid "Integration with 1C settings "
+msgstr "Інтеграція з 1С налаштування "
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:59
+#: ./application/modules/exchange/assets/admin/settings.tpl:53
+msgid "Yes"
+msgstr "Так"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:60
+#: ./application/modules/exchange/assets/admin/settings.tpl:54
+msgid "No"
+msgstr "Немає"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:131
+#: ./application/modules/exchange/assets/admin/settings.tpl:125
+msgid "Order status after export"
+msgstr "Статус замовлення після експорту"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:164
+#: ./application/modules/exchange/assets/admin/settings.tpl:158
+msgid "All errors will be written to the file"
+msgstr "Всі помилки будуть записані у файл"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:180
+#: ./application/modules/exchange/assets/admin/settings.tpl:174
+msgid "If you specify an email errors when incorrect password"
+msgstr "Якщо ви вкажіть адресу електронної пошти помилки, коли невірний пароль"
+
+#: ./application/modules/exchange/templates/admin/settings.tpl:181
+#: ./application/modules/exchange/assets/admin/settings.tpl:175
+msgid "and security  will be sent to administrator"
+msgstr "і безпека буде надіслано адміністратору"

@@ -1,0 +1,355 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-23 12:10+0200\n"
+"PO-Revision-Date: 2015-02-23 12:10+0200\n"
+"Last-Translator:  <>\n"
+"Language-Team:  <>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;lang\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: application/modules/import_export/assets/js/importAdmin.js:31
+msgid "Слот"
+msgstr ""
+
+#: application/modules/import_export/assets/js/importAdmin.js:31
+msgid "Файл успешно загружен"
+msgstr ""
+
+#: application/modules/import_export/classes/Export.php:62
+msgid "Укажите колонки фотографий для экспорта."
+msgstr ""
+
+#: application/modules/import_export/classes/Export.php:67
+msgid "Атрибут Имя товара обязательный для експорта!"
+msgstr ""
+
+#: application/modules/import_export/classes/Export.php:73
+msgid "Атрибут Цена обязательный для експорта!"
+msgstr ""
+
+#: application/modules/import_export/classes/Export.php:76
+msgid "Атрибут Имя варианта обязательный для експорта!"
+msgstr ""
+
+#: application/modules/import_export/classes/Export.php:79
+msgid "Атрибут Категория обязательный для експорта!"
+msgstr ""
+
+#: application/modules/import_export/classes/Export.php:82
+msgid "Атрибут Артикул обязательный для експорта!"
+msgstr ""
+
+#: application/modules/import_export/classes/Export.php:87
+msgid "Укажите колонки для экспорта."
+msgstr ""
+
+#: application/modules/import_export/classes/BaseImport.php:352
+msgid "Related products"
+msgstr "Аксессуары"
+
+#: application/modules/import_export/classes/BaseImport.php:348
+msgid "Hot"
+msgstr "Новинка"
+
+#: application/modules/import_export/import.php:103
+msgid "Products was imported"
+msgstr "Продукты были импортированы"
+
+#: application/modules/import_export/import.php:125
+msgid "Loaded import file"
+msgstr "Загружен файл импорта"
+
+#: application/modules/import_export/admin.php:79
+msgid "Products was exported"
+msgstr "Продукты были экспортированы"
+
+#: application/modules/import_export/admin.php:211
+msgid "Import_export backup photos was deleted"
+msgstr "Import_export backup фотографий был удален"
+
+#: application/modules/import_export/classes/BaseImport.php:353
+msgid "Main image variant"
+msgstr "Основное изображение варианта"
+
+#: application/modules/import_export/assets/admin/import.tpl:60
+#: application/modules/import_export/assets/admin/import.tpl:63
+#: application/modules/import_export/assets/admin/export.tpl:116
+#: application/modules/import_export/assets/admin/export.tpl:119
+msgid "Language "
+msgstr "Язык"
+
+#: application/modules/import_export/assets/admin/import.tpl:63
+#: application/modules/import_export/assets/admin/export.tpl:119
+msgid "Язык, на котором будут заполняться переводы названий товаров и вариантов"
+msgstr "Язык, на котором будут заполняться переводы названий товаров и вариантов"
+
+#: application/modules/import_export/classes/BaseImport.php:344
+msgid "Article"
+msgstr "Артикул"
+
+#: application/modules/import_export/classes/BaseImport.php:343
+msgid "Amount"
+msgstr "Количество"
+
+#: application/modules/import_export/assets/admin/export.tpl:134
+#: application/modules/import_export/assets/admin/export.tpl:147
+msgid "Start export all categories"
+msgstr "Начать экспорт всех категорий"
+
+#: application/modules/import_export/module_info.php:8
+msgid "The module allows you to import and export of goods by means of formats CSV, XLS, XLSX"
+msgstr "Модуль позволяет выполнять импорт и экспорт товаров с помощью форматов CSV,XLS,XLSX"
+
+#: application/modules/import_export/module_info.php:7
+msgid "Module Import Export"
+msgstr "Импорт-экспорт в CSV/XLS"
+
+#: application/modules/import_export/classes/BaseImport.php:349
+msgid "Action"
+msgstr "Акция"
+
+#: application/modules/import_export/classes/BaseImport.php:338
+#: application/modules/import_export/assets/admin/import_attributes.tpl:18
+#: application/modules/import_export/assets/admin/import_attributes.tpl:19
+msgid "Skip column"
+msgstr "Пропустить колонку"
+
+#: application/modules/import_export/classes/BaseImport.php:339
+msgid "Product Name"
+msgstr "Имя Продукта"
+
+#: application/modules/import_export/classes/BaseImport.php:340
+msgid "URL"
+msgstr "URL"
+
+#: application/modules/import_export/classes/BaseImport.php:341
+msgid "Price"
+msgstr "Цена"
+
+#: application/modules/import_export/classes/BaseImport.php:342
+msgid "Old Price"
+msgstr "Старая Цена"
+
+#: application/modules/import_export/classes/BaseImport.php:345
+msgid "Variant name"
+msgstr "Название варианта"
+
+#: application/modules/import_export/classes/BaseImport.php:346
+msgid "Active"
+msgstr "Активный"
+
+#: application/modules/import_export/classes/BaseImport.php:347
+msgid "Hit"
+msgstr "Хит"
+
+#: application/modules/import_export/classes/BaseImport.php:350
+msgid "Brand"
+msgstr "Бренд"
+
+#: application/modules/import_export/classes/BaseImport.php:351
+msgid "Category"
+msgstr "Категория"
+
+#: application/modules/import_export/classes/BaseImport.php:354
+msgid "Currencies"
+msgstr "Валюты"
+
+#: application/modules/import_export/classes/BaseImport.php:355
+msgid "Additional images"
+msgstr "Дополнительные изображения"
+
+#: application/modules/import_export/classes/BaseImport.php:356
+msgid "Short description"
+msgstr "Краткое описание"
+
+#: application/modules/import_export/classes/BaseImport.php:357
+msgid "Full description"
+msgstr "Полное описание"
+
+#: application/modules/import_export/classes/BaseImport.php:358
+msgid "Meta Title"
+msgstr "Мета-Заголовок"
+
+#: application/modules/import_export/classes/BaseImport.php:359
+msgid "Meta Description"
+msgstr "Мета-Описание"
+
+#: application/modules/import_export/classes/BaseImport.php:360
+msgid "Meta Keywords"
+msgstr "Мета-Ключевые слова"
+
+#: application/modules/import_export/import.php:195
+msgid "Wrong file type. Only csv|xls|xlsx"
+msgstr "Неправильный Тип файла. Только в csv|xls|xlsx"
+
+#: application/modules/import_export/import.php:253
+msgid "The file {$filename} is not writable"
+msgstr "Файл {$filename} не записан"
+
+#: application/modules/import_export/assets/admin/import.tpl:5
+#: application/modules/import_export/assets/admin/export.tpl:5
+#: application/modules/import_export/assets/admin/list.tpl:5
+msgid "Import-Export CSV/XLS"
+msgstr "Импорт-экспорт в CSV/XLS"
+
+#: application/modules/import_export/assets/admin/import.tpl:9
+#: application/modules/import_export/assets/admin/settings.tpl:10
+#: application/modules/import_export/assets/admin/export.tpl:9
+#: application/modules/import_export/assets/admin/list.tpl:9
+msgid "Back"
+msgstr "Назад"
+
+#: application/modules/import_export/assets/admin/import.tpl:14
+#: application/modules/import_export/assets/admin/import.tpl:23
+#: application/modules/import_export/assets/admin/settings.tpl:16
+#: application/modules/import_export/assets/admin/export.tpl:15
+#: application/modules/import_export/assets/admin/list.tpl:15
+msgid "Import"
+msgstr "Импорт"
+
+#: application/modules/import_export/assets/admin/import.tpl:15
+#: application/modules/import_export/assets/admin/settings.tpl:17
+#: application/modules/import_export/assets/admin/export.tpl:16
+#: application/modules/import_export/assets/admin/export.tpl:24
+#: application/modules/import_export/assets/admin/list.tpl:16
+msgid "Export"
+msgstr "Экспорт"
+
+#: application/modules/import_export/assets/admin/import.tpl:16
+#: application/modules/import_export/assets/admin/settings.tpl:18
+#: application/modules/import_export/assets/admin/export.tpl:17
+#: application/modules/import_export/assets/admin/list.tpl:17
+msgid "List archives exports"
+msgstr "Список архивов экспорта"
+
+#: application/modules/import_export/assets/admin/import.tpl:37
+msgid "Select the file"
+msgstr "Выберите файл"
+
+#: application/modules/import_export/assets/admin/import.tpl:79
+msgid "Select the file in a convenient format"
+msgstr "Выберите файл в удобном формате"
+
+#: application/modules/import_export/assets/admin/import.tpl:79
+msgid "Files"
+msgstr "Файлы"
+
+#: application/modules/import_export/assets/admin/import.tpl:129
+#: application/modules/import_export/assets/admin/export.tpl:105
+msgid "The data of your database will be stored in the folder"
+msgstr "Данные Вашей базы данных будет храниться в папке"
+
+#: application/modules/import_export/assets/admin/import.tpl:132
+msgid "Take a snapshot of the database before start"
+msgstr "Сделать снимок базы данных до начала"
+
+#: application/modules/import_export/assets/admin/import.tpl:137
+msgid "Resize"
+msgstr "Размер"
+
+#: application/modules/import_export/assets/admin/import.tpl:141
+msgid "For imported images will be produced resize"
+msgstr "Для импортированных изображений будет производиться изменение размера"
+
+#: application/modules/import_export/assets/admin/import.tpl:142
+msgid "It may take more time"
+msgstr "Это может занять больше времени"
+
+#: application/modules/import_export/assets/admin/import.tpl:146
+msgid "Start resize images after import"
+msgstr "Начать изменение размера изображения после импорта"
+
+#: application/modules/import_export/assets/admin/import.tpl:151
+msgid "Price checking"
+msgstr "Цена проверки"
+
+#: application/modules/import_export/assets/admin/import.tpl:155
+msgid "Will be recalculated prices of products in accordance to the default currency"
+msgstr "Будет произведен пересчет цен на продукцию в соответствии с валютой по умолчанию"
+
+#: application/modules/import_export/assets/admin/import.tpl:159
+msgid "Refresh prices after import"
+msgstr "Обновлять цены после импорта"
+
+#: application/modules/import_export/assets/admin/import.tpl:166
+msgid "Start import"
+msgstr "Начать импорт"
+
+#: application/modules/import_export/assets/admin/settings.tpl:6
+msgid "Category management module"
+msgstr "Категория модуля управления"
+
+#: application/modules/import_export/assets/admin/export.tpl:33
+msgid "Columns"
+msgstr "Столбцы"
+
+#: application/modules/import_export/assets/admin/export.tpl:49
+msgid "Categories"
+msgstr "Категории"
+
+#: application/modules/import_export/assets/admin/export.tpl:66
+msgid "Loading properties"
+msgstr "Загрузка свойств"
+
+#: application/modules/import_export/assets/admin/export.tpl:67
+msgid "Show properties of the selected categories"
+msgstr "Посмотреть свойства выбранной категории"
+
+#: application/modules/import_export/assets/admin/export.tpl:72
+msgid "Properties of the products"
+msgstr "Свойства продуктов"
+
+#: application/modules/import_export/assets/admin/export.tpl:75
+msgid "Select a category for export"
+msgstr "Выберите категорию для экспорта"
+
+#: application/modules/import_export/assets/admin/export.tpl:80
+msgid "Filetype"
+msgstr "Тип файла"
+
+#: application/modules/import_export/assets/admin/export.tpl:110
+msgid "Make a backup of photos"
+msgstr "Сделать резервную копию фотографий"
+
+#: application/modules/import_export/assets/admin/export.tpl:134
+msgid "Exports in progress"
+msgstr "Экспорт в прогрессе"
+
+#: application/modules/import_export/assets/admin/export.tpl:146
+msgid "Start export"
+msgstr "Начать экспорт"
+
+#: application/modules/import_export/assets/admin/import_attributes.tpl:5
+msgid "Attributes"
+msgstr "Атрибуты"
+
+#: application/modules/import_export/assets/admin/import_attributes.tpl:6
+msgid "The list of attributes that will be imported"
+msgstr "Список атрибутов, которые будут импортированы"
+
+#: application/modules/import_export/assets/admin/import_attributes.tpl:7
+msgid "Properties"
+msgstr "Свойства"
+
+#: application/modules/import_export/assets/admin/list.tpl:24
+msgid "Archive List"
+msgstr "Список Архивов"
+
+#: application/modules/import_export/assets/admin/list.tpl:34
+msgid "Download"
+msgstr "Скачать"
+
+#: application/modules/import_export/assets/admin/list.tpl:37
+msgid "Delete"
+msgstr "Удалить"

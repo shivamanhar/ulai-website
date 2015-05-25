@@ -1,0 +1,152 @@
+<!-- Shop hooks file -->
+<hook id="system_init_completed">
+<![CDATA[
+if (!defined('DS'))
+{
+	define('DS', DIRECTORY_SEPARATOR);
+}
+// Full path to shop module dir with ending slash.
+define('SHOP_DIR', PUBPATH.'/application/modules/shop/');
+
+// Include Shop core.
+require_once(SHOP_DIR . 'classes/ShopCore.php');
+
+// Register shop autoloader.
+spl_autoload_unregister(array('ShopCore','autoload'));
+spl_autoload_register(array('ShopCore','autoload'));
+
+// Diable CSRF library form web money service
+$CI =& get_instance();
+if ($CI->uri->segment(1)=='shop' && $CI->uri->segment(2)=='cart' && $CI->uri->segment(3)=='view' && $_GET['result']=='true' && $_GET['pm'] > 0)
+{
+	define('ICMS_DISBALE_CSRF',true);
+}
+// Support for robokassa
+if ($CI->uri->segment(1)=='shop' && $CI->uri->segment(2)=='cart' && $CI->uri->segment(3)=='view' && $_GET['getResult']=='true')
+{
+	define('ICMS_DISBALE_CSRF',true);
+}
+// Support for privat
+if ($CI->uri->segment(1)=='shop' && $CI->uri->segment(2)=='order' && $CI->uri->segment(3)=='view' && $_POST)
+{
+	define('ICMS_DISBALE_CSRF',true);
+}
+if ($CI->uri->segment(1)=='shop' && $CI->uri->segment(2)=='cart' && $CI->uri->segment(3)=='view' && $_GET['succes']=='true')
+{
+	define('ICMS_DISBALE_CSRF',true);
+}
+if ($CI->uri->segment(1)=='shop' && $CI->uri->segment(2)=='cart' && $CI->uri->segment(3)=='view' && $_GET['fail']=='true')
+{
+	define('ICMS_DISBALE_CSRF',true);
+}
+if (isset($_SERVER['HTTP_REFERER']) AND strpos($_SERVER['HTTP_REFERER']."", 'facebook.com'))
+{
+	define('ICMS_DISBALE_CSRF',true);
+}
+]]>
+</hook>
+
+<hook id="core_set_tpl_data">
+<![CDATA[
+	ShopCore::initEnviroment();
+]]>
+</hook>
+
+<hook id="auth_show_success_message">
+<![CDATA[
+	$username = $val ? $this->input->post('username') : $userInfo['username'];
+	if ($query = ShopCore::$ci->users->get_user_by_username($username) AND $query->num_rows() == 1)
+	{
+		$row = $query->row();
+		$profile = SUserProfileQuery::create()->filterById($row->id)->findOne();
+		if ($profile === null && $val)
+		{
+			// Create profile on user register from front
+			$profile = new SUserProfile;
+			$profile->setUserId($row->id);
+			$profile->setUserEmail($row->email);
+			$profile->setName($_POST['userInfo']['fullName']);
+			$profile->setDateCreated(strtotime($row->created));
+			$profile->setKey($row->key);
+                        $profile->setPhone($row->phone);
+                        $profile->setAddress($row->address);
+			$profile->save();
+		} else
+		if ($profile === null && $userInfo)
+		{
+			// Create profile in admin panel
+			$profile = new SUserProfile;
+			$profile->setUserId($row->id);
+			$profile->setName($_POST['userInfo']['fullName']);
+			$profile->setAddress($_POST['userInfo']['deliverTo']);
+			$profile->setPhone($_POST['userInfo']['phone']);
+			$profile->setUserEmail($row->email);
+                        $profile->setPhone($row->phone);
+                        $profile->setAddress($row->address);
+			$profile->setDateCreated(strtotime($row->created));
+			$profile->setKey($row->key);
+			$profile->save();
+		}
+	}
+]]>
+</hook>
+
+<hook id="users_user_created">
+<![CDATA[     
+	if ($query = ShopCore::$ci->users->get_user_by_email($user) AND $query->num_rows() == 1)
+	{
+		$row = $query->row();
+		$profile = SUserProfileQuery::create()->filterById($row->id)->findOne();
+		if ($profile === null)
+		{
+			// Create profile
+			$profile = new SUserProfile;
+			$profile->setUserId($row->id);
+			$profile->setUserEmail($row->email);
+                        $profile->setAddress($row->address);
+			$profile->setKey($row->key);
+                        $profile->setPhone($row->phone);
+			$profile->setDateCreated(strtotime($row->created));
+			$profile->save();
+		}
+	}
+]]>
+</hook>
+
+<hook id="auth_reg_set_rules">
+<![CDATA[
+	if(isset($_POST['email']))
+		$_POST['username'] = $_POST['email'];
+
+	$val->set_rules('userInfo[fullName]', 'ФИО', 'trim|required|xss_clean');
+
+	unset($this->form_validation->_field_data['username']);
+]]>
+</hook>
+
+<hook id="admin_language_delete">
+<![CDATA[
+	if($lang['default'] != 1){
+		$language = $lang['identif'];
+		
+		//delete this language for all translatable shop models
+		SCategoryI18nQuery::create()->filterByLocale($language)->delete();
+		SProductsI18nQuery::create()->filterByLocale($language)->delete();
+		SBrandsI18nQuery::create()->filterByLocale($language)->delete();
+		SProductVariantsI18nQuery::create()->filterByLocale($language)->delete();
+		SPropertiesI18nQuery::create()->filterByLocale($language)->delete();
+		SNotificationStatusesI18nQuery::create()->filterByLocale($language)->delete();
+		SDeliveryMethodsI18nQuery::create()->filterByLocale($language)->delete();
+		SOrderStatusesI18nQuery::create()->filterByLocale($language)->delete();
+		SPaymentMethodsI18nQuery::create()->filterByLocale($language)->delete();
+		
+		//settings doesn't have I18n Behavior
+		$settingsTranslatableFields = ShopCore::app()->SSettings->getTranslatableFields();
+		ShopSettingsQuery::create()->filterByLocale($language)->where('ShopSettings.Name IN ?', $settingsTranslatableFields)->delete();
+		
+		SCallbackStatusesI18nQuery::create()->filterByLocale($language)->delete();
+		SCallbackThemesI18nQuery::create()->filterByLocale($language)->delete();
+		ShopBanersI18nQuery::create()->filterByLocale($language)->delete();
+    }
+]]>
+</hook>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets>
+    <widget>
+        <title>Популярные/Новые/Акционные товары</title>
+        <description>Отображение блока в виде “карусели” с выбранными товарами</description>
+        <method>products</method>
+	<subpath>widgets</subpath>
+    </widget>
+    <widget>
+        <title>Бренды</title>
+        <description>Отображение блока в виде “карусели” с выбранными брендами</description>
+        <method>brands</method>
+	<subpath>widgets</subpath>
+    </widget>
+    <widget>
+        <title>Просмотренные товары</title>
+        <description>Отображение уже просмотренных пользователем товаров</description>
+        <method>view_product</method>
+	<subpath>widgets</subpath>
+    </widget>
+    <widget>
+        <title>Похожие продукты</title>
+        <description>Отображение на странице товара блока с похожими товарами</description>
+        <method>similar_products</method>
+	<subpath>widgets</subpath>
+    </widget>
+</widgets>

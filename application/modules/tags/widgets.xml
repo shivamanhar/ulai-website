@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets>
+
+    <widget>
+        <title>Облако Тегов</title>
+        <description>Отображение облака самых популярных тегов к страницам сайта.</description>
+        <method>tags_cloud</method>
+    </widget>
+
+</widgets>

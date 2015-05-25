@@ -1,0 +1,37 @@
+AddDefaultCharset UTF-8
+
+Options +FollowSymLinks
+Options -Indexes
+
+RewriteEngine on
+
+# RewriteCond %{HTTP_HOST} ^www.site.com$ [NC]
+# RewriteRule ^(.*)$ http://site.com/$1 [L,R=301]
+
+#apache2ctl -M && sudo a2enmod expires && sudo service apache2 restart (to enable mod_expires on ubuntu)
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access 7 days"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresByType application/x-shockwave-flash "access 1 year"
+ExpiresByType application/javascript "access 1 year"
+ExpiresByType application/x-javascript "access 1 year"
+ExpiresByType text/css "access 1 year"
+ExpiresByType text/html "access 1 year"
+</IfModule>
+
+RewriteRule ^(.*)\.tpl$ [R=404]
+RewriteRule ^(.*)backups(.*)\.zip$ [R=404]
+
+RewriteCond $1 !^(index\.php|assets/.*|uploads/.*|application/third_party/(tinymce|filemanager).*|favicon\.ico|favicon\.png|captcha/.*|application/.*/templates|application/.*/assets/js|application/.*/assets/css|application/.*/assets/images|CHANGELOG.xml|templates|js)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+####################################
+# or
+# RewriteRule ^(.+)$ index.php?$1 [L]
+# or
+# RewriteRule ^(.*)$ /index.php?/$1 [L,QSA]

@@ -1,0 +1,1167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="Shop" defaultIdMethod="native" baseClass="PropelBaseModelClass">
+    <table name="shop_category" phpName="SCategory">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true"/>
+        <column name="external_id" type="varchar" size="255" required="false" />
+        <column name="name" type="varchar" size="255" required="true" />
+        <column name="h1" type="varchar" size="255" required="true" />
+        <column name="url" type="varchar" size="255" required="true" />
+        <column name="active" type="boolean" required="false" />
+        <column name="description" type="longvarchar" required="false" />
+        <column name="image" type="varchar" size="255" required="false" />
+        <column name="meta_desc" type="varchar" size="255" required="true" />
+        <column name="meta_title" type="varchar" size="255" required="true" />
+        <column name="meta_keywords" type="varchar" size="255" required="true" />
+        <column name="parent_id" type="integer" required="false"/>
+        <column name="position" type="integer" required="false"/>
+        <column name="full_path" type="varchar" size="1000" required="false"/> <!-- Full uri path to category -->
+        <column name="full_path_ids" type="varchar" size="250" required="false"/>
+        <column name="tpl" type="varchar" size="250" required="false"/>
+        <column name="order_method" type="integer" required="false"/>
+        <column name="showsitetitle" type="integer" required="false" />
+        <column name="created" type="integer" required="true" />
+        <column name="updated" type="integer" required="true" /> 
+
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name, h1, description, meta_desc, meta_title, meta_keywords" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+		
+        <foreign-key foreignTable="shop_category" phpName="SCategory" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="parent_id" foreign="id"/>
+        </foreign-key>
+		
+        <index>
+            <index-column name="url" />
+        </index>
+        <index>
+            <index-column name="active" />
+        </index>
+        <index>
+            <index-column name="parent_id" />
+        </index>
+        <index>
+            <index-column name="position" />
+        </index>
+    </table>
+    
+    <table name="shop_category_i18n" phpName="SCategoryI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" primaryKey="true"/>
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="255" required="true" />
+        <column name="h1" type="varchar" size="255" required="true" />
+        <column name="description" type="longvarchar" required="false" />
+        <column name="meta_desc" type="varchar" size="255" required="true" />
+        <column name="meta_title" type="varchar" size="255" required="true" />
+        <column name="meta_keywords" type="varchar" size="255" required="true" />
+        
+        <foreign-key foreignTable="shop_category" phpName="SCategory" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <table name="shop_products" phpName="SProducts">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="user_id" type="INTEGER" required="false" />
+        <column name="external_id" type="varchar" size="255" required="false" />
+        <column name="name" type="varchar" size="500" required="true" />
+        <column name="url" type="varchar" size="255" required="true" />
+        <column name="active" type="boolean" required="false" />
+        <column name="hit" type="boolean" required="false" />
+        <column name="hot" type="boolean" required="false" />
+        <column name="action" type="boolean" required="false" />
+        <column name="brand_id" type="integer" required="false" />
+        <column name="category_id" type="integer" required="true" />
+        <column name="related_products" type="varchar" size="255" required="false" />
+        <column name="short_description" type="longvarchar" required="false" />
+        <column name="full_description" type="longvarchar" required="false" />
+        <column name="meta_title" type="varchar" size="255" required="false" />
+        <column name="meta_description" type="varchar" size="255" required="false" />
+        <column name="meta_keywords" type="varchar" size="255" required="false" />
+        <column name="old_price" type="float" required="false" phpType="string" sqlType="FLOAT (10,2)" />
+        <column name="created" type="integer" required="true" />
+        <column name="updated" type="integer" required="true" />
+        <column name="views" type="integer" required="false" defaultValue="0"/>
+        <column name="added_to_cart_count" type="integer" required="false" />
+        <column name="enable_comments" type="boolean" required="false" defaultValue="true" />
+        <column name="tpl" type="varchar" size="250" required="false" />
+
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name, short_description, full_description, meta_title, meta_description, meta_keywords" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+        
+        <behavior name="query_cache">
+            <parameter name="backend" value="custom" />
+            <parameter name="lifetime" value="600" />
+        </behavior>
+        
+        <foreign-key foreignTable="shop_brands" phpName="Brand">
+            <reference local="brand_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_category" phpName="MainCategory" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="category_id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="url" />
+        </index>
+        <index>
+            <index-column name="brand_id" />
+        </index>
+        <index>
+            <index-column name="category_id" />
+        </index>
+
+    </table>
+
+    <!-- Begin of product kits -->
+    <table name="shop_kit" phpName="ShopKit">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="product_id" type="INTEGER"/>
+        <column name="active" type="boolean" required="true" defaultValue="1" />
+        <column name="position" type="smallint" required="true"/>
+        <column name="only_for_logged" type="boolean" defaultValue="0" />
+		
+        <foreign-key foreignTable="shop_products" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    
+    <table name="shop_gifts" phpName="ShopGifts">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="gift_key" type="varchar" phpName="Key" refPhpName="Key" size="255"/>
+        <column name="active" type="INTEGER"/>
+        <column name="price" type="INTEGER"/>
+        <column name="created" type="INTEGER"/>
+        <column name="espdate" type="INTEGER"/>
+    </table>
+	
+    <table name="shop_kit_product" phpName="ShopKitProduct">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="product_id" type="INTEGER" primaryKey="true"/>
+        <column name="kit_id" type="INTEGER" primaryKey="true"/>
+        <column name="discount" type="varchar" size="11" required="false" defaultValue="0"/>
+
+        <foreign-key foreignTable="shop_products" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+        <foreign-key foreignTable="shop_product_variants" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="product_id" foreign="product_id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_kit" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="kit_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    <!-- End of product kits -->	
+
+    <table name="shop_products_i18n" phpName="SProductsI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="500" required="true" />
+        <column name="short_description" type="longvarchar" required="false" />
+        <column name="full_description" type="longvarchar" required="false" />
+        <column name="meta_title" type="varchar" size="255" required="false" />
+        <column name="meta_description" type="varchar" size="255" required="false" />
+        <column name="meta_keywords" type="varchar" size="255" required="false" />
+        
+        <foreign-key foreignTable="shop_products" phpName="SProducts" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+        
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <table name="shop_product_images" phpName="SProductImages">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="product_id" type="INTEGER" primaryKey="true"/>
+        <column name="image_name" type="varchar" primaryKey="true"/>
+        <column name="position" type="smallint" />
+
+        <foreign-key foreignTable="shop_products" onDelete="CASCADE">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="position" />
+        </index>
+    </table>
+
+    <table name="shop_brands" phpName="SBrands">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="url" type="varchar" size="255" required="true" />
+        <column name="description" type="longvarchar" required="false" />
+        <column name="meta_title" type="varchar" size="255" required="false" />
+        <column name="meta_description" type="varchar" size="255" required="false" />
+        <column name="meta_keywords" type="varchar" size="255" required="false" />
+        <column name="image" type="varchar" required="false"  size="255"/>
+        <column name="position" type="smallint" required="true" />
+        <column name="created" type="integer" required="true" />
+        <column name="updated" type="integer" required="true" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name, description, meta_title, meta_description, meta_keywords" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+
+        <index>
+            <index-column name="url" />
+        </index>
+    </table>
+    
+    <table name="shop_brands_i18n" phpName="SBrandsI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="500" required="true" />
+        <column name="description" type="longvarchar" required="false" />
+        <column name="meta_title" type="varchar" size="255" required="false" />
+        <column name="meta_description" type="varchar" size="255" required="false" />
+        <column name="meta_keywords" type="varchar" size="255" required="false" />
+        
+        <foreign-key foreignTable="shop_brands" phpName="SBrands" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+        
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <table name="shop_product_variants" phpName="SProductVariants">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="external_id" type="varchar" size="255" required="false" />
+        <column name="product_id" type="INTEGER" required="true" />
+        <column name="name" type="varchar" size="500" required="false" />
+        <column name="price" type="float" required="true" sqlType="DOUBLE (20,5)" />
+        <column name="number" type="varchar" size="255" required="false" />
+        <column name="stock" type="integer"  required="false" />
+        <column name="mainImage" type="varchar" required="false"  size="255"/>
+        <column name="position" type="integer"  required="false" />
+        <column name="currency" type="integer"  required="false" />
+        <column name="price_in_main" type="float" required="true" phpType="string" sqlType="DOUBLE (20,5)" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+        
+        <foreign-key foreignTable="shop_products" refPhpName="ProductVariant" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+        <foreign-key foreignTable="shop_currencies" refPhpName="Currency" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="currency" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="product_id" />
+        </index>
+        <index>
+            <index-column name="position" />
+        </index>
+        <index>
+            <index-column name="number" />
+        </index>
+        <index>
+            <index-column name="price" />
+        </index>
+    </table>
+    
+    <table name="shop_product_variants_i18n" phpName="SProductVariantsI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="500" required="false" />
+        
+        <foreign-key foreignTable="shop_product_variants" phpName="SProductVariants" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <table name="shop_warehouse" phpName="SWarehouses">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="varchar" required="true" size="255" />
+        <column name="address" type="varchar" required="false" size="255" />
+        <column name="phone" type="varchar" required="false" size="255" />
+        <column name="description" type="longvarchar" required="false" />
+
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <table name="shop_warehouse_data" phpName="SWarehouseData">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="product_id" type="integer" required="true" />
+        <column name="warehouse_id" type="integer" required="true" />
+        <column name="count" type="integer" required="false" />
+
+        <foreign-key foreignTable="shop_products" onDelete="CASCADE">
+            <reference local="product_id" foreign="id" />
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_warehouse">
+            <reference local="warehouse_id" foreign="id" />
+        </foreign-key>
+    </table>
+
+    <table name="shop_product_categories" isCrossRef="true">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="product_id" type="INTEGER" primaryKey="true"/>
+        <column name="category_id" type="INTEGER" primaryKey="true"/>
+
+        <foreign-key foreignTable="shop_products" phpName="Product" onDelete="CASCADE">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_category" phpName="Category" onDelete="CASCADE">
+            <reference local="category_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+    <table name="shop_product_properties" phpName="SProperties">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="external_id" type="varchar" size="255" required="false" />
+        <column name="name" type="varchar" size="50" required="true" />
+        <column name="csv_name" type="varchar" size="50" required="true" />
+        <column name="multiple" type="boolean" required="false" />
+        <column name="active" type="boolean"  required="false" />
+        <column name="show_on_site" type="boolean"  required="false" />
+        <column name="show_in_compare" type="boolean"  required="false" />
+        <column name="show_in_filter" type="boolean"  required="false" />
+        <column name="show_faq" type="boolean"  required="false" />
+        <column name="main_property" type="boolean"  required="false" />
+        <column name="position" type="INTEGER"  required="true" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name, description" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+        
+        <index>
+            <index-column name="active" />
+        </index>
+        <index>
+            <index-column name="show_on_site" />
+        </index>
+        <index>
+            <index-column name="show_in_compare" />
+        </index>
+        <index>
+            <index-column name="position" />
+        </index>
+    </table>
+    
+    <table name="shop_product_properties_i18n" phpName="SPropertiesI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="50" required="true" />
+        <column name="data" type="longvarchar"  required="false" />
+        <column name="description" type="longvarchar"  required="false" /> 
+        
+        <foreign-key foreignTable="shop_product_properties" phpName="SProperties" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <table name="shop_product_properties_categories" isCrossRef="true">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="property_id" type="INTEGER" primaryKey="true"/>
+        <column name="category_id" type="INTEGER" primaryKey="true"/>
+
+        <foreign-key foreignTable="shop_product_properties" phpName="Property" onDelete="CASCADE">
+            <reference local="property_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_category" phpName="PropertyCategory" onDelete="CASCADE">
+            <reference local="category_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+    <table name="shop_product_properties_data" phpName="SProductPropertiesData">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="property_id" type="INTEGER" />
+        <column name="product_id" type="INTEGER"  />
+        <column name="value" type="varchar" size="500" required="true" />
+        <column name="locale" type="varchar" size="5" required="true" />
+
+        <foreign-key foreignTable="shop_product_properties" onDelete="CASCADE">
+            <reference local="property_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_products" phpName="Product" onDelete="CASCADE">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="value" />
+        </index>
+    </table>
+
+    <table name="shop_notifications" phpName="SNotifications">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="product_id" type="integer" required="true" />
+        <column name="variant_id" type="integer" required="true" />
+        <column name="user_name" type="varchar" size="100" />
+        <column name="user_email" type="varchar" size="100" />
+        <column name="user_phone" type="varchar" size="100" />
+        <column name="user_comment" type="varchar" size="500" />
+        <column name="status" type="integer" required="true"/>
+        <column name="date_created" type="integer" required="true" />
+        <column name="active_to" type="integer" required="true" />
+        <column name="manager_id" type="integer" required="false" />
+        <column name="notified_by_email" type="boolean" />
+
+        <foreign-key foreignTable="shop_products">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_product_variants">
+            <reference local="variant_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_notification_statuses">
+            <reference local="status" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="user_email" />
+        </index>
+        <index>
+            <index-column name="user_phone" />
+        </index>
+        <index>
+            <index-column name="status" />
+        </index>
+        <index>
+            <index-column name="date_created" />
+        </index>
+        <index>
+            <index-column name="active_to" />
+        </index>
+    </table>
+
+    <table name="shop_notification_statuses" phpName="SNotificationStatuses">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="varchar" size="500" required="true" />
+        <column name="position" type="smallint" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+
+        <index>
+            <index-column name="position" />
+        </index>
+    </table>
+    
+    <table name="shop_notification_statuses_i18n" phpName="SNotificationStatusesI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="500" required="true" />
+        
+        <foreign-key foreignTable="shop_notification_statuses" phpName="SNotificationStatuses" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <table name="shop_delivery_methods" phpName="SDeliveryMethods">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="varchar" size="500" required="true" />
+        <column name="description" type="longvarchar" required="false" />
+        <column name="pricedescription" type="longvarchar" required="false" />
+        <column name="price" type="float" required="true" phpType="string" sqlType="DOUBLE (20,5)" />
+        <column name="free_from" type="float" required="true" phpType="string" sqlType="DOUBLE (20,5)" />
+        <column name="enabled" type="boolean" required="false" />
+        <column name="is_price_in_percent" type="boolean" required="true" />
+        <column name="position" type="integer" size="11" />
+        <column name="delivery_sum_specified" type="boolean" required="false" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name, description, pricedescription" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+        
+        <index>
+            <index-column name="enabled" />
+        </index>
+    </table>
+
+    <table name="shop_delivery_methods_i18n" phpName="SDeliveryMethodsI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="500" required="true" />
+        <column name="description" type="longvarchar" required="false" />
+        <column name="pricedescription" type="longvarchar" required="false" />
+        <column name="delivery_sum_specified_message" type="varchar" size="500" required="false" />
+        
+        <foreign-key foreignTable="shop_delivery_methods" phpName="SDeliveryMethods" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+    
+    <table name="shop_delivery_methods_systems" isCrossRef="true">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="delivery_method_id" type="INTEGER" primaryKey="true"/>
+        <column name="payment_method_id" type="INTEGER" primaryKey="true"/>
+
+        <foreign-key foreignTable="shop_delivery_methods" onDelete="CASCADE">
+            <reference local="delivery_method_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_payment_methods" phpName="PaymentMethods">
+            <reference local="payment_method_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+    <table name="shop_order_statuses" phpName="SOrderStatuses">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="INTEGER" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="varchar" size="500" required="true" />
+        <column name="color" type="varchar" size="255" />
+        <column name="fontcolor" type="varchar" size="255" />
+        <column name="position" type="smallint" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+        
+        <index>
+            <index-column name="position" />
+        </index>
+    </table>
+    
+    <table name="shop_order_statuses_i18n" phpName="SOrderStatusesI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="500" required="true" />
+        
+        <foreign-key foreignTable="shop_order_statuses" phpName="SOrderStatuses" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <table name="shop_orders" phpName="SOrders" >
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="user_id" type="integer"  required="false" />
+        <column name="order_key" type="varchar" phpName="Key" refPhpName="Key" size="255" required="true" />
+        <column name="delivery_method" type="integer"  />
+        <column name="delivery_price" type="float" phpType="string" sqlType="FLOAT (10,2)" />
+        <column name="payment_method" type="integer"  />
+        <column name="status" type="integer" />
+        <column name="paid" type="boolean" />
+        <column name="user_full_name" type="varchar" size="255" />
+        <column name="user_surname" type="varchar" size="255" />
+        <column name="user_email" type="varchar"  size="255" />
+        <column name="user_phone" type="varchar"  size="255" />
+        <column name="user_deliver_to" type="varchar" size="500" />
+        <column name="user_comment" type="varchar"  size="1000" />
+        <column name="date_created" type="integer" />
+        <column name="date_updated" type="integer" />
+        <column name="user_ip" type="varchar" size="255" />
+        <column name="total_price" type="float" sqlType="FLOAT (10,2)" />
+        <column name="external_id" type="varchar" size="255" required="false" />
+        <column name="gift_cert_key" type="varchar" size="25" required="false" />
+        <column name="discount" type="float" sqlType="FLOAT (10,2)" required="false" />
+        <column name="gift_cert_price" type="float" sqlType="FLOAT (10,2)"/>
+        <column name="discount_info" type="longvarchar"/>
+        <column name="origin_price" type="float" sqlType="FLOAT (10,2)" required="false"/>
+        <column name="comulativ" type="float" sqlType="FLOAT (10,2)" required="false"/>
+
+        <foreign-key foreignTable="shop_delivery_methods" onDelete="SETNULL">
+            <reference local="delivery_method" foreign="id" />
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_payment_methods" onDelete="SETNULL">
+            <reference local="payment_method" foreign="id" />
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_order_statuses" onDelete="SETNULL">
+            <reference local="status" foreign="id" />
+        </foreign-key>
+
+        <index>
+            <index-column name="order_key" />
+        </index>
+        <index>
+            <index-column name="status" />
+        </index>
+        <index>
+            <index-column name="date_created" />
+        </index>
+    </table>
+
+    <table name="shop_orders_products" phpName="SOrderProducts">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="order_id" type="integer"  required="true"/>
+        <column name="kit_id" type="integer" />
+        <column name="is_main" type="boolean" />
+        <column name="product_id" type="integer" required="true" />
+        <column name="variant_id" type="integer" required="true" />
+        <column name="product_name" type="varchar" size="255" />
+        <column name="variant_name" type="varchar" size="255"/>
+        <column name="price" type="float" sqlType="FLOAT (10,2)" />
+        <column name="origin_price" type="float" sqlType="FLOAT (10,2)" />
+        <column name="quantity" type="integer" />
+
+        <foreign-key foreignTable="shop_products">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+        
+        <foreign-key foreignTable="shop_product_variants">
+            <reference local="variant_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_orders" onDelete="CASCADE">
+            <reference local="order_id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="order_id" />
+        </index>
+    </table>
+
+    <table name="shop_orders_status_history" phpName="SOrderStatusHistory">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="order_id" type="integer" required="true"/>
+        <column name="status_id" type="integer" required="true"/>
+        <column name="user_id" type="integer" required="true"/>
+        <column name="date_created" type="integer" />
+        <column name="comment" type="varchar"  size="1000" />
+
+        <foreign-key foreignTable="shop_orders" onDelete="CASCADE">
+            <reference local="order_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_order_statuses" onDelete="SETNULL">
+            <reference local="status_id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="order_id" />
+        </index>
+    </table>
+
+    <table name="shop_payment_methods" phpName="SPaymentMethods">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="varchar" size="255" />
+        <column name="description" type="longvarchar" />
+        <column name="active" type="boolean" />
+        <column name="currency_id" type="integer" size="11" />
+        <column name="payment_system_name" type="varchar" size="255" />
+        <column name="position" type="integer" size="11" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="name, description" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+        
+        <foreign-key foreignTable="shop_currencies" phpName="Currency">
+            <reference local="currency_id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="position" />
+        </index>
+    </table>
+    
+    <table name="shop_payment_methods_i18n" phpName="SPaymentMethodsI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="name" type="varchar" size="255" />
+        <column name="description" type="longvarchar" />
+
+        <foreign-key foreignTable="shop_payment_methods" phpName="SPaymentMethods" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="name" />
+        </index>
+    </table>
+
+    <!-- Currency help site http://www.xe.com/symbols.php -->
+    <table name="shop_currencies" phpName="SCurrencies">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="varchar" size="255" />
+        <column name="main" type="boolean" />
+        <column name="is_default" type="boolean" />
+        <column name="code" type="varchar" size="5" /> <!-- e.g. RUR -->
+        <column name="symbol" type="varchar" size="5" /> <!-- e.g. $ -->
+        <column name="rate" type="float" phpType="string" defaultValue="1.0000"  sqlType="DOUBLE (14,8)"/>
+        <column name="showOnSite" type="integer" phpType="int" defaultValue="0"  sqlType="INT (1)"/>
+        <column name="currency_template" type="varchar" size="500"/>
+
+        <index>
+            <index-column name="name" />
+        </index>
+        <index>
+            <index-column name="main" />
+        </index>
+        <index>
+            <index-column name="is_default" />
+        </index>
+    </table>
+
+    <table name="shop_products_rating" phpName="SProductsRating">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="product_id" type="integer" size="11" primaryKey="true"/>
+        <column name="votes" type="integer" size="11" />
+        <column name="rating" type="integer" size="11" />
+        <foreign-key foreignTable="shop_products">
+            <reference local="product_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+    <table name="shop_settings" phpName="ShopSettings">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="name" type="varchar" required="true" autoIncrement="false" primaryKey="true" />
+        <column name="value" type="longvarchar" required="false" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true" />
+    </table>
+    
+    <table name="shop_sorting" phpName="SSorting">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="pos" type="integer" size="11" />
+        <column name="name" type="varchar" size="50" required="true" />
+        <column name="name_front" type="varchar" size="50" />
+        <column name="tooltip" type="varchar" size="100" />
+        <column name="get" type="varchar" size="25" required="true" />
+        <column name="active" type="boolean" required="false" />
+    </table>
+    
+
+    <table name="shop_discounts" phpName="ShopDiscounts">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="name" type="varchar" size="255" required="true" />
+        <column name="description" type="longvarchar" required="false" />
+        <column name="active" type="boolean" required="true" />
+        <column name="date_start" type="integer" size="11" required="false" />
+        <column name="date_stop" type="integer" size="11" required="false" />
+        <column name="discount" type="varchar" size="11" required="false" />
+        <column name="user_group" type="varchar" size="255" required="false" />
+        <column name="min_price" type="float" phpType="string" sqlType="FLOAT (10,2)" required="false" />
+        <column name="max_price" type="float" phpType="string" sqlType="FLOAT (10,2)" required="false" />
+        <column name="categories" type="longvarchar" required="false" /> <!-- ID List of categories -->
+        <column name="products" type="longvarchar" required="false" /> <!-- ID List of products -->
+    </table>
+
+    <table name="users" phpName="SUserProfile">
+
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="username" type="varchar" size="50" required="false" phpName="Name"/>
+        <column name="password" type="varchar"  size="255" />
+        <column name="email" type="varchar" size="100" required="false" phpName="UserEmail" />
+        <column name="address" type="varchar" size="255" required="false" />
+        <column name="phone" type="varchar" size="32" required="false" />
+        <column name="banned" type="tinyint" size="1" required="false" />
+        <column name="ban_reason" type="varchar" size="255" required="false" />
+        <column name="newpass" type="varchar" size="255" required="false" />
+        <column name="newpass_key" type="varchar" size="255" required="false" />
+        <column name="newpass_time" type="integer" required="false" />
+        <column name="created" type="integer" phpName="DateCreated"/>
+        <column name="last_ip" type="varchar" size="40"/>
+        <column name="last_login" type="integer"/>
+        <column name="modified" type="timestamp" required="false" />
+        <column name="cart_data" type="longvarchar" required="false" />
+        <column name="wish_list_data" type="longvarchar" required="false" />
+        <column name="key" type="varchar" size="255" required="true" />
+        <column name="amout" type="float" phpType="string" sqlType="FLOAT (10,2)" required="true" />
+        <column name="discount" type="varchar" size="255" required="false" />
+        <column name="role_id" type="integer" required="false" />
+		
+        <index>
+            <index-column name="key" />
+        </index>
+    </table>
+
+    <table name="shop_callbacks" phpName="SCallbacks">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="user_id" type="integer" required="false" />
+        <column name="status_id" type="integer" required="false" />
+        <column name="theme_id" type="varchar"  size="255" />
+        <column name="phone" type="varchar" size="255" required="false" />
+        <column name="name" type="varchar"  size="255" />
+        <column name="comment" type="longvarchar"  />
+        <column name="date" type="integer"  />
+
+        <foreign-key foreignTable="shop_callbacks_statuses">
+            <reference local="status_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="shop_callbacks_themes">
+            <reference local="theme_id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="user_id" />
+        </index>
+        <index>
+            <index-column name="status_id" />
+        </index>
+        <index>
+            <index-column name="theme_id" />
+        </index>
+        <index>
+            <index-column name="date" />
+        </index>
+    </table>
+
+    <table name="shop_callbacks_statuses" phpName="SCallbackStatuses">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="text" type="varchar" size="255" required="false" />
+        <column name="is_default" type="boolean" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="text" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+    </table>
+    
+    <table name="shop_callbacks_statuses_i18n" phpName="SCallbackStatusesI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="text" type="varchar" size="255" required="false" />
+        
+        <foreign-key foreignTable="shop_callbacks_statuses" phpName="SCallbackStatuses" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+        
+        <index>
+            <index-column name="text" />
+        </index>
+    </table>
+
+    <table name="shop_callbacks_themes" phpName="SCallbackThemes">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true" />
+        <column name="text" type="varchar" size="255" required="false" />
+        <column name="position" type="integer" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="text" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+    </table>
+    
+    <table name="shop_callbacks_themes_i18n" phpName="SCallbackThemesI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+
+        <column name="id" type="integer" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="5" required="true" primaryKey="true"/>
+        <column name="text" type="varchar" size="255" required="false" />
+        
+        <foreign-key foreignTable="shop_callbacks_themes" phpName="SCallbackThemes" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+        <index>
+            <index-column name="text" />
+        </index>
+    </table>
+    
+    <!--  Table for custom fields-->
+    <table name="custom_fields" phpName="CustomFields">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+        
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="entity" type="varchar" size="32" />
+        <column name="field_type_id" type="integer" required="true" phpName="typeId" />
+        <column name="field_name" type="varchar" size="64" required="true" phpName="name" />
+        <column name="is_required" type="boolean" required="true" defaultValue="true" />
+        <column name="is_active" type="boolean" required="true" defaultValue="true" />
+        <column name="options" type="varchar" size="65" />
+        <column name="is_private" type="boolean" required="true" defaultValue="false" />        
+        <column name="validators" type="varchar" size="255" required="false" />
+        <column name="classes" type="longvarchar" required="false" phpName="classes" />
+        <column name="position" type="tinyint" required="false" phpName="position" />
+        
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="field_label, field_description, possible_values" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+    </table>
+    
+    <table name="custom_fields_i18n" phpName="CustomFieldsI18n">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+        
+        <column name="id" type="integer" required="true" primaryKey="true" />
+        <column name="locale" type="varchar" size="4" required="true" primaryKey="true" />
+        <column name="field_label" type="varchar" size="255" required="false"/>
+        <column name="field_description" type="longvarchar" required="false" />
+        <column name="possible_values" type="longvarchar"  />
+        
+        <foreign-key foreignTable="custom_fields" phpName="CustomFields" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="id" foreign="id"/>
+        </foreign-key>
+
+    </table>
+    
+    <table name="shop_comulativ_discount" phpName="ShopComulativ" isCrossRef="true">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+        
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="description" type="varchar" size="255" />
+        <column name="discount" type="integer" size="3"/>
+        <column name="active" type="integer" size="1"/>
+        <column name="date" type="integer" size="15"/>
+        <column name="total" type="integer" size="255"/>
+        <column name="total_a" type="integer" size="255"/>
+    </table>
+
+    <!--  Table for custom fields data -->
+    <table name="custom_fields_data" phpName="CustomFieldsData" isCrossRef="true">
+        <vendor type="mysql">
+            <parameter name="Engine" value="MyISAM"/>
+            <parameter name="Charset" value="utf8"/>
+        </vendor>
+        
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="locale" type="varchar" size="4" required="true"/>
+        <column name="field_id" type="integer" required="true" phpName="fieldId" />
+        <column name="entity_id" type="integer" required="true" phpName="entityId" />    
+        <column name="field_data" type="longvarchar" required="false" phpName="data" />
+    </table> 
+    
+</database>

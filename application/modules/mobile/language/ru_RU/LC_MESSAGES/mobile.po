@@ -1,0 +1,54 @@
+﻿msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-17 01:32+0200\n"
+"PO-Revision-Date: 2014-03-17 01:32+0200\n"
+"Last-Translator:  \n"
+"Language-Team:  \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;lang\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: ./application/modules/mobile/assets/admin/main.tpl:6
+msgid "Mobile version settings"
+msgstr "Настройки мобильной версии"
+
+#: ./application/modules/mobile/assets/admin/main.tpl:10
+msgid "Back"
+msgstr "Назад"
+
+#: ./application/modules/mobile/assets/admin/main.tpl:11
+msgid "Save"
+msgstr "Сохранить"
+
+#: ./application/modules/mobile/module_info.php:4
+#: ./application/modules/mobile/assets/admin/main.tpl:25
+msgid "Mobile version"
+msgstr "Мобильная версия"
+
+#: ./application/modules/mobile/assets/admin/main.tpl:78
+#: ./application/modules/mobile/assets/admin/main.tpl:94
+msgid "Patern list is empty"
+msgstr "Список шаблонов пуст"
+
+#: ./application/modules/mobile/admin.php:47
+msgid "Data saved"
+msgstr "Данные сохранены"
+
+#: ./application/modules/mobile/mobile.php:69
+msgid "Settings error"
+msgstr "Ошибка настроек"
+
+#: ./application/modules/mobile/module_info.php:5
+msgid "Allows you to connect a mobile version of an Online Store"
+msgstr "Позволяет подключить мобильную версию к интернет-магазину"
+
