@@ -37,4 +37,4 @@
             </div>
         </div>
     </div>
-<?php endif; ?><?php $mabilis_ttl=1432201437; $mabilis_last_modified=1426010500; ///var/www/templates/light/widgets/brands.tpl ?>
+<?php endif; ?><?php $mabilis_ttl=1432714922; $mabilis_last_modified=1426010500; ///var/www/templates/light/widgets/brands.tpl ?>

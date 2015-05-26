@@ -1,4 +1,75 @@
 <!--Start. Top menu and authentication data block-->
+<div class="content-header">
+    <div class="container">
+        <div class="header-left-content-header t-a_j">
+            <!--        Logo-->
+            <div class='contact-info' style='float: left; width: 33%;'>
+                <?php echo widget ('workday'); ?>
+            </div>
+            <!--                Start. contacts block-->
+            
+
+            <?php if($CI->uri->uri_string() == ''): ?>
+            <span class="logo" style='display: inline-block; width: 33%;'>
+                <!-- <img src="<?php echo siteinfo('siteinfo_logo_url')?>" alt="logo.png"/> -->
+                <img src="<?php if(isset($THEME)){ echo $THEME; } ?>images/header/logo.png" alt="logo.png" />
+                <span style='color:red; margin-left:2px;'>Мы сделаем Ваш дом теплым и уютным</span> 
+            </span>
+            <?php else:?>
+            <a href="<?php echo site_url (''); ?>" class="logo" style='display: inline-block; width: 33%;'>
+                <!-- <img src="<?php echo siteinfo('siteinfo_logo_url')?>" alt="logo.png"/> -->
+                <img src="<?php if(isset($THEME)){ echo $THEME; } ?>images/header/logo.png" alt="logo.png" />
+                
+            </a>
+            <span style='color:red; margin-left:2px;'>Мы сделаем Ваш дом теплым и уютным</span> 
+            <?php endif; ?>
+            <div class='phones-header-holder' style='float: right; width: 33%;'>
+                <div class="phones-header">
+                    <!-- <span class="f-s_0 d_b">
+                        <span class="icon_phone_header"></span>
+                        <span class="phone">
+                            <span class="phone-number"><?php echo siteinfo('siteinfo_mainphone')?></span>
+                        </span>
+                    </span> -->
+                    <div class="btn-order-call">
+                        <button data-tab="true" data-drop="#ordercall" data-source="<?php echo site_url ('shop/callback'); ?>">
+                            <!-- <span class="icon_order_call"></span> -->
+                            <span class="text-el d_l" style='border-bottom:none; padding:0 12px;'><?php echo lang ('ЗАДАТЬ ВОПРОС','light'); ?></span>
+                        </button>
+                    </div>
+                    <div class='btn-order-question'>
+                        <span> dasdadas </span>
+                    </div>
+                </div>
+                <div class="phones-header">
+                    <!-- <span class="f-s_0 d_b">
+                        <span class="icon_phone_header"></span>
+                        <span class="phone">
+                            <span class="phone-number"><?php echo siteinfo('siteinfo_mainphone')?></span>
+                        </span>
+                    </span> -->
+                    <div class="btn-order-call">
+                        <button data-tab="true" data-drop="#ordercall" data-source="<?php echo site_url ('shop/callback'); ?>">
+                            <!-- <span class="icon_order_call"></span> -->
+                            <span class="text-el d_l" style='border-bottom:none;'><?php echo lang ('ОСТАВИТЬ ЗАЯВКУ','light'); ?></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--                End. Contacts block-->
+            
+        </div>
+    </div>
+</div>
+<?php if(strpos($CI->uri->uri_string, 'search') !== false): ?>
+<script>
+    $(document).on('scriptDefer', function() {
+        var input = $('#inputString');
+        input.setCursorPosition(input.val().length);
+    });
+</script>
+
+<?php endif; ?>
 <div class="menu-header">
     <div class="container">
         <nav class="left-header f_l">
@@ -24,44 +95,13 @@
         </div>
     </div>
 </div>
-<!--End. Top menu and authentication data block-->
-<div class="content-header">
-    <div class="container">
-        <div class="header-left-content-header t-a_j">
-            <!--        Logo-->
-            <?php if($CI->uri->uri_string() == ''): ?>
-            <span class="logo">
-                <img src="<?php echo siteinfo('siteinfo_logo_url')?>" alt="logo.png"/>
-            </span>
-            <?php else:?>
-            <a href="<?php echo site_url (''); ?>" class="logo">
-                <img src="<?php echo siteinfo('siteinfo_logo_url')?>" alt="logo.png"/>
-            </a>
-            <?php endif; ?>
-            <!--                Start. contacts block-->
-            <div class="phones-header">
-                <span class="f-s_0 d_b">
-                    <span class="icon_phone_header"></span>
-                    <span class="phone">
-                        <span class="phone-number"><?php echo siteinfo('siteinfo_mainphone')?></span>
-                    </span>
-                </span>
-                <div class="btn-order-call">
-                    <button data-tab="true" data-drop="#ordercall" data-source="<?php echo site_url ('shop/callback'); ?>">
-                        <span class="icon_order_call"></span>
-                        <span class="text-el d_l"><?php echo lang ('Заказать звонок','light'); ?></span>
-                    </button>
-                </div>
-            </div>
 
-            <?php echo widget ('workday'); ?>
-            <!--                End. Contacts block-->
-            <div class="frame-search-cleaner">
+<!-- <div class="frame-search-cleaner"> -->
                 <!--                Start. Include cart data template-->
 
                 <!--                    End. Include cart data template-->
                 <!--                Start. Show search form-->
-                <div class="frame-search-form">
+                <!-- <div class="frame-search-form">
                     <div class="p_r">
                         <form name="search" method="get" action="<?php echo shop_url ('search'); ?>">
                             <span class="btn-search">
@@ -73,18 +113,8 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <!--                End. Show search form-->
-            </div>
-        </div>
-    </div>
-</div>
-<?php if(strpos($CI->uri->uri_string, 'search') !== false): ?>
-<script>
-$(document).on('scriptDefer', function() {
-    var input = $('#inputString');
-    input.setCursorPosition(input.val().length);
-});
-</script>
-
-<?php endif; ?><?php $mabilis_ttl=1432201437; $mabilis_last_modified=1426010500; ///var/www/templates/light/header.tpl ?>
+<!--             </div> -->
+<!--End. Top menu and authentication data block-->
+<?php $mabilis_ttl=1432714922; $mabilis_last_modified=1432628897; ///var/www/templates/light/header.tpl ?>

@@ -1,1 +1,0 @@
-<li class="active"><span><?php if(isset($title)){ echo $title; } ?></span><?php if(isset($wrapper)){ echo $wrapper; } ?></li><?php $mabilis_ttl=1432201437; $mabilis_last_modified=1426010500; ///var/www/templates/light/top_menu/level_0/item_default_active.tpl ?>

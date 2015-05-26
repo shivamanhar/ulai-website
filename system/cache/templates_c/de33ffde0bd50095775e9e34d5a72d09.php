@@ -32,4 +32,4 @@
             <?php }} ?>
         </ul>
     </div>
-<?php endif; ?><?php $mabilis_ttl=1432201437; $mabilis_last_modified=1426010500; ///var/www/templates/light/widgets/latest_news.tpl ?>
+<?php endif; ?><?php $mabilis_ttl=1432714922; $mabilis_last_modified=1426010500; ///var/www/templates/light/widgets/latest_news.tpl ?>

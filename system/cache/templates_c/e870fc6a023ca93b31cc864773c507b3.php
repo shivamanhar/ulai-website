@@ -36,4 +36,4 @@
             <?php echo widget ('latest_news', TRUE); ?>
         </div>
     </div>
-</div><?php $mabilis_ttl=1432201435; $mabilis_last_modified=1426010500; ///var/www/templates/light/shop/start_page.tpl ?>
+</div><?php $mabilis_ttl=1432714920; $mabilis_last_modified=1426010500; ///var/www/templates/light/shop/start_page.tpl ?>

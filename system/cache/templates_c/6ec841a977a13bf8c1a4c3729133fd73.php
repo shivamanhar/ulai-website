@@ -112,4 +112,4 @@
             <?php $this->include_shop_tpl('js_templates', '/var/www/templates/light'); ?>
         </body>
         </html>
-        <?php $mabilis_ttl=1432201437; $mabilis_last_modified=1426010500; ///var/www/templates/light/shop/../main.tpl ?>
+        <?php $mabilis_ttl=1432714922; $mabilis_last_modified=1426010500; ///var/www/templates/light/shop/../main.tpl ?>

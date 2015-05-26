@@ -357,4 +357,4 @@
         <!-- End. For wishlist page-->
         <div class="decor-element"></div>
     </li>
-<?php }} ?><?php $mabilis_ttl=1432201435; $mabilis_last_modified=1426010500; ///var/www/templates/light/components/TOpi/assets/one_product_item.tpl ?>
+<?php }} ?><?php $mabilis_ttl=1432714920; $mabilis_last_modified=1426010500; ///var/www/templates/light/components/TOpi/assets/one_product_item.tpl ?>

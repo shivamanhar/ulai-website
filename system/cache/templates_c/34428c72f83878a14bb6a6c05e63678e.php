@@ -70,4 +70,4 @@
         text.plurKits = ['<?php echo lang ("набор",'light'); ?>', "<?php echo lang ("набора",'light'); ?>", '<?php echo lang ("наборов",'light'); ?>'];
         text.plurComments = ['<?php echo lang ("отзыв",'light'); ?>', '<?php echo lang ("отзыва",'light'); ?>', '<?php echo lang ("отзывов",'light'); ?>'];
 </script>
-<?php $mabilis_ttl=1432201437; $mabilis_last_modified=1426010500; ///var/www/templates/light/config.js.tpl ?>
+<?php $mabilis_ttl=1432714922; $mabilis_last_modified=1426010500; ///var/www/templates/light/config.js.tpl ?>

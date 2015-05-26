@@ -26,4 +26,4 @@
             </div>
         </section>
     </div>
-<?php endif; ?><?php $mabilis_ttl=1432201436; $mabilis_last_modified=1426010500; ///var/www/templates/light/widgets/new_products.tpl ?>
+<?php endif; ?><?php $mabilis_ttl=1432714921; $mabilis_last_modified=1426010500; ///var/www/templates/light/widgets/new_products.tpl ?>

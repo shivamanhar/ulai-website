@@ -26,4 +26,4 @@
         </div>
     </section>
 </div>
-<?php $mabilis_ttl=1432201435; $mabilis_last_modified=1426010500; //templates/light/banners/main_slider.tpl ?>
+<?php $mabilis_ttl=1432714920; $mabilis_last_modified=1432543108; //templates/light/banners/main_slider.tpl ?>

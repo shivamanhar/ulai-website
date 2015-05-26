@@ -1,2 +1,0 @@
-<li><a href="<?php if(isset($link)){ echo $link; } ?>" title="<?php if(isset($title)){ echo $title; } ?>"><?php if(isset($title)){ echo $title; } ?></a><?php if(isset($wrapper)){ echo $wrapper; } ?></li>
-<?php $mabilis_ttl=1432206872; $mabilis_last_modified=1426010500; ///var/www/templates/light//footer_category_menu/level_1/item_default_active.tpl ?>

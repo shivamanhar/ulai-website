@@ -4,6 +4,7 @@
             <img src="{$THEME}{$colorScheme}/images/404.png"/>
             <div class="description">
                 {$error}
+
                 <div class="title">{lang('404 / Страница не найдена','light')}</div>
                 <p><b>{lang('Эта страница не существует или была удалена.','light')}</b></p>
                 <hr/>
